@@ -1,0 +1,40 @@
+syntax="proto3";
+package post;
+
+option go_package = "github.com/islombay/blogPost/grpc/post;post_service";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service PostService {
+  rpc Create(CreatePostBody) returns (Post){}
+  rpc GetAll(google.protobuf.Empty) returns (GetAllResponse) {}
+  rpc Delete(DeleteRequest) returns (DeleteResponse){}
+}
+
+message DeleteRequest {
+  int64 id = 1;
+}
+
+message DeleteResponse {
+  bool ok = 1;
+}
+
+message CreatePostBody {
+  string title = 1;
+  string content = 2;
+  google.protobuf.Timestamp created_at = 3;
+  string username = 4;
+}
+
+message Post {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  google.protobuf.Timestamp created_at = 4;
+  string username = 5;
+}
+
+message GetAllResponse {
+  repeated Post posts = 1;
+}

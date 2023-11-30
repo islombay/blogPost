@@ -1,0 +1,7 @@
+server:
+  port: "9091"
+db:
+  host: "localhost"
+  port: "5432"
+  dbname: "blogPost"
+  sslmode: "disable"
