@@ -2,7 +2,7 @@ server:
   host: "localhost"
   port: "8080"
 db:
-  host: "localhost"
+  host: "db"
   port: "5432"
   dbname: "blogPost"
   sslmode: "disable"

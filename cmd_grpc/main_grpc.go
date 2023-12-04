@@ -1,4 +1,4 @@
-package main
+package cmd_grpc
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ import (
 	pb "github.com/islombay/blogPost/internal/grpc/protos"
 )
 
-func main() {
+func main_grpc() {
 	cfg := configs.NewConfigGRPC()
 
 	lis, err := net.Listen("tcp", fmt.Sprintf("[::1]:%s", cfg.Server.Port))

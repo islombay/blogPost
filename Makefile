@@ -3,3 +3,6 @@ rest:
 
 grpc:
 	go run cmd/main_grpc.go
+
+docker-build:
+	docker build -t blogpost .

@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./
+    command: go run cmd/main.go
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
+    environment:
+      - DB_USER=postgres
+      - DB_PWD=islombay
+
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgres/data
+    environment:
+      - POSTGRES_PASSWORD=islombay
+    ports:
+      - 5436:5432
